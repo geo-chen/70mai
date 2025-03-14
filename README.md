@@ -16,4 +16,13 @@ This is the bypass - once we get a list of video file names, we can proceed with
 https://github.com/user-attachments/assets/eb0532f9-96f5-40cc-b0e5-2dd4c186148d
 
 
+**Disclosure timeline**
+
+31 Jan 2025 - Responsible disclosure to manufacturer
+
+15 Feb 2025 - A follow-up email to manufacturer
+
+
+
+
 
