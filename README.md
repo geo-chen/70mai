@@ -1,10 +1,12 @@
-# 70mai Dashcam 1S
+# 70mai 
+
+## Dashcam 1S
 
 Product: https://www.70mai.com/cam1s
 
 Version: Dash Cam 1S
 
-## Finding 1: Bypass Device Pairing of 70mai Dashcam 1S
+## Finding 1 - CVE-2025-30112: Bypass Device Pairing of 70mai Dashcam 1S
 
 From the official 70mai mobile app, a user needs to perform authorization by clicking on the physical power button in order to connect to the dashcam’s network. However, by connecting to the dashcam’s network and directly accessing the API on port 80 and RTSP on port 554, an attacker can bypass the device authorization mechanism that requires a user to physically press on the power button during connection.
 
