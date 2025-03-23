@@ -20,28 +20,63 @@ This is the bypass:
 https://github.com/user-attachments/assets/eb0532f9-96f5-40cc-b0e5-2dd4c186148d
 
 
-## Finding 2: Unauthenticated File Storage Allowing Remote Dumping of Video Footage and Live Video Stream
+## Finding 2 - CVE-2025-30129: Unauthenticated File Storage Allowing Remote Dumping of Video Footage and Live Video Stream
 
-Once connected to the dashcam's network, all video recordings can be dumped via the following path without any http-level authentication:
+**Description**: Once connected to the network of 70mai Dashcam 1S, all video recordings can be dumped via http://192.72.1.1/SD/Normal/$FILE_NAME without any http-level authentication:
 
 ```
 http://192.72.1.1/SD/Normal/$FILE_NAME
 ```
-The RTSP feed can also be accessed directly at port 554:
+The RTSP feed can also be accessed directly at port 554 - rtsp://192.72.1.1/liveRTSP/av4:
 
 ```
 rtsp://192.72.1.1/liveRTSP/av4
 ```
 
-## Finding 3: Unauthorised Configuration Change
+**Vulnerability Type**: Incorrect Access Control
 
-Once connected to the dashcam's network, an attacker can make unauthorised configuration changes to the dashcam and even sabotage the car battery to drain it by disabling the battery protection settings:
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam 1S
+
+**Affected Component**: Unauthenticated Video Services
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby can connect to the dashcam to view livestream or dump recorded sensitive media files.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+## Finding 3 - CVE-2025-30134: Unauthorised Configuration Change
+
+**Description**: Once connected to the network of 70mai Dashcam 1S, an attacker can make unauthorised configuration changes to the dashcam and even sabotage the car battery to drain it by disabling the battery protection settings:
 ```
 curl -s "http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Camera.Menu.<REDACTED>
 ```
 
 ![image](https://github.com/user-attachments/assets/73a5ca50-1b68-4d96-86c7-1af22874f837)
 
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam 1S
+
+**Affected Component**: Unauthenticated Configuration Management
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby connect to the dashcam and make unauthorised changes to the dashcam's configurations without alerting the dashcam owner or pressing any physical pairing button on the dashcam.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
 
 **Disclosure timeline**
 
