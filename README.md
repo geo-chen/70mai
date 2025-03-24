@@ -20,7 +20,7 @@ This is the bypass:
 https://github.com/user-attachments/assets/eb0532f9-96f5-40cc-b0e5-2dd4c186148d
 
 
-## Finding 2 - CVE-2025-30129: Unauthenticated File Storage Allowing Remote Dumping of Video Footage and Live Video Stream
+## Finding 2: Unauthenticated File Storage Allowing Remote Dumping of Video Footage and Live Video Stream
 
 **Description**: Once connected to the network of 70mai Dashcam 1S, all video recordings can be dumped via http://192.72.1.1/SD/Normal/$FILE_NAME without any http-level authentication:
 
