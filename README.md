@@ -51,7 +51,7 @@ rtsp://192.72.1.1/liveRTSP/av4
 
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
-## Finding 3 - CVE-2025-30134: Unauthorised Configuration Change
+## Finding 3: Unauthorised Configuration Change
 
 **Description**: Once connected to the network of 70mai Dashcam 1S, an attacker can make unauthorised configuration changes to the dashcam and even sabotage the car battery to drain it by disabling the battery protection settings:
 ```
