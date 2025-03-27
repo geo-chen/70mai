@@ -187,7 +187,7 @@ rtsp://192.168.0.1:554/livestream/12
 
 **Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can upload arbitrary/malicious files or even replace firmware via editing the auto-run script(s). 
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/bf609930-4d38-4962-b794-4c24a892ca1d)
 
 
 **Vulnerability Type**: Incorrect Access Control
