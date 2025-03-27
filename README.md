@@ -1,10 +1,10 @@
-# 70mai 
+# 70mai Dashcam 1S
 
-## Dashcam 1S
+**Product**: Dashcam
 
-Product: https://www.70mai.com/cam1s
+**Version**: 1S
 
-Version: Dash Cam 1S
+**Product URL**: https://www.70mai.com/cam1s
 
 ## Finding 1 - CVE-2025-30112: Bypass Device Pairing of 70mai Dashcam 1S
 
@@ -74,11 +74,141 @@ curl -s "http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Camera.Menu.<R
 
 **Impact Information Disclosure**: True
 
-**Attack Vectors**: A remote attacker nearby connect to the dashcam and make unauthorised changes to the dashcam's configurations without alerting the dashcam owner or pressing any physical pairing button on the dashcam.
+**Attack Vectors**: A remote attacker nearby connected to the dashcam can make unauthorised changes to the dashcam's configurations without alerting the dashcam owner or pressing any physical pairing button on the dashcam.
 
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
-**Disclosure timeline**
+
+
+# 70mai Dashcam M300
+
+**Product**: Dashcam
+
+**Version**: M300
+
+**Product URL**: https://www.70mai.com/m300
+
+## Finding 4: Exposed Root Password via Unauthenticated HTTP Server
+
+**Description**: The 70mai Dashcam M300 has port 80 open without authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can access all files on it. 
+
+![image](https://github.com/user-attachments/assets/a1990e6c-a081-4df9-85d4-fd613d2e978f)
+
+
+From the web server, we obtain the root password hash and derive that it's using an empty password.
+
+![image](https://github.com/user-attachments/assets/ecfb1270-8716-4248-a064-0150e4c504ad)
+
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam M300
+
+**Affected Component**: Unauthenticated Web Server
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby connected to the dashcam's network can access all files on the web server without going through authentication or device pairing and can obtain the root password.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+## Finding 5: Remotely Dump All Sensitive Video & Audio Recordings
+
+**Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can obtain a full list of video recordings and dump them out.
+
+Although directory listing is disabled on the web server for the video recordings stored on SD card:
+
+![image](https://github.com/user-attachments/assets/2e6c8c06-393b-48d5-b943-96f04c1a1ce3)
+
+We can obtain a full list of video recordings via telnet:
+
+![image](https://github.com/user-attachments/assets/1a19d4d5-5bf3-4a89-9619-308ffd61ee9d)
+
+Then downloading them via curl or http. 
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam M300
+
+**Affected Component**: Weak Telnet Authentication
+
+**Attack Type**: Remote
+
+**Impact Code execution**: True
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby connected to the dashcam's network can access the dashcam's telnet session as root user and fetch a full list of sensitive video recordings.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+## Finding 6: Unauthenticated Live Video Stream
+
+**Description**: Once connected to the network of 70mai Dashcam M300, an attacker can remotely access the live stream of the dashcam without authentication using the rtsp port:
+
+```
+rtsp://192.168.0.1:554/livestream/12
+```
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam M300
+
+**Affected Component**: Unauthenticated Video Services
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby can connect to the dashcam to view livestream.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+![image](https://github.com/user-attachments/assets/66e2b7f0-4222-417c-bdd0-09723d106842)
+
+
+
+## Finding 7: Remotely Upload Malicious Files and Execute Code
+
+**Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can upload arbitrary/malicious files or even replace firmware via editing the auto-run script(s). 
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam M300
+
+**Affected Component**: OS Write Permissions
+
+**Attack Type**: Remote
+
+**Impact Code execution**: True
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby connected to the dashcam's network can write arbitrary code into the dashcam memory or SD, run malicious commands (RCE), or even replace the firmware with a malicious one.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+
+
+## Disclosure timeline
 
 31 Jan 2025 - Responsible disclosure to manufacturer
 
