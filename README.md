@@ -174,7 +174,7 @@ rtsp://192.168.0.1:554/livestream/12
 
 **Impact Information Disclosure**: True
 
-**Attack Vectors**: A remote attacker nearby can connect to the dashcam to view livestream.
+**Attack Vectors**: A remote attacker nearby can connect to the dashcam to view livestream without the dashcam owner's knowledge (no voice guidance or sounds triggered).
 
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
