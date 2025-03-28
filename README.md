@@ -209,6 +209,38 @@ rtsp://192.168.0.1:554/livestream/12
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
+## Finding 8: Remotely Crashing the Dashcam
+
+**Description**: If telnet is accessed on the 70mai Dashcam M300, a default script is run automatically. In order to interact with the telnet session, the user needs to break the running of the script:
+![image](https://github.com/user-attachments/assets/1d04320b-0897-4f18-bcbb-939f51bc1e18)
+
+If not, the dashcam would continue running the default script, which is unintended, and that causes a natural crash and the dashcam light turns from green to red, effectively stuck at a disabled state until the battery power drains out and it reboots.
+
+![image](https://github.com/user-attachments/assets/403d41fe-6f34-48be-b1bb-ed6e7f0490f3)
+
+
+![image](https://github.com/user-attachments/assets/e3b4ae7c-caa1-482e-889a-a08bd4afc1a6)
+
+This creates a DoS on the dashcam.
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam M300
+
+**Affected Component**: OS 
+
+**Attack Type**: Remote
+
+**Impact Code execution**: True
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby can connect to the dashcam's telnet session and crash the camera.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
 
 
 ## Disclosure timeline
