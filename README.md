@@ -123,15 +123,18 @@ From the web server, we obtain the root password hash and derive that it's using
 
 **Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can obtain a full list of video recordings and dump them out.
 
-Although directory listing is disabled on the web server for the video recordings stored on SD card:
+Although directory listing is disabled on the web server for the video recordings stored on SD card to prevent unauthorised personnel from downloading the videos:
 
 ![image](https://github.com/user-attachments/assets/2e6c8c06-393b-48d5-b943-96f04c1a1ce3)
 
-We can obtain a full list of video recordings via telnet:
+There a a full bypass by obtaining the video recordings via telnet instead:
 
 ![image](https://github.com/user-attachments/assets/1a19d4d5-5bf3-4a89-9619-308ffd61ee9d)
 
-Then downloading them via curl or http. 
+Then downloading them via curl or http:
+
+![image](https://github.com/user-attachments/assets/5f4e1df1-641c-4f6e-a14d-a7cb4661e610)
+
 
 **Vulnerability Type**: Incorrect Access Control
 
