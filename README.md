@@ -222,7 +222,7 @@ If not, the dashcam would continue running the default script, which is unintend
 
 ![image](https://github.com/user-attachments/assets/796778ac-1ebc-44f6-8a9f-e8de33781ce5)
 
-This creates a DoS on the dashcam.
+This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 
 **Vulnerability Type**: Incorrect Access Control
 
