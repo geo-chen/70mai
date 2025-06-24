@@ -51,7 +51,7 @@ rtsp://192.72.1.1/liveRTSP/av4
 
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
-## Finding 3: Unauthorised Configuration Change
+## Finding 3 - CVE-2025-6525: Unauthorised Configuration Change
 
 **Description**: Once connected to the network of 70mai Dashcam 1S, an attacker can make unauthorised configuration changes to the dashcam and even sabotage the car battery to drain it by disabling the battery protection settings:
 ```
@@ -88,7 +88,7 @@ curl -s "http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Camera.Menu.<R
 
 **Product URL**: https://www.70mai.com/m300
 
-## Finding 4: Exposed Root Password via Unauthenticated HTTP Server
+## Finding 4 - CVE-2025-6526: Exposed Root Password via Unauthenticated HTTP Server
 
 **Description**: The 70mai Dashcam M300 has port 80 open without authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can access all files on it. 
 
@@ -119,7 +119,7 @@ From the web server, we obtain the root password hash and derive that it's using
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
-## Finding 5: Remotely Dump All Sensitive Video & Audio Recordings
+## Finding 5 - CVE-2025-6527: Remotely Dump All Sensitive Video & Audio Recordings
 
 **Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can obtain a full list of video recordings and dump them out.
 
@@ -155,7 +155,7 @@ Then downloading them via curl or http:
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
-## Finding 6: Unauthenticated Live Video Stream
+## Finding 6 - CVE-2025-6528: Unauthenticated Live Video Stream
 
 **Description**: Once connected to the network of 70mai Dashcam M300, an attacker can remotely access the live stream of the dashcam without authentication using the rtsp port:
 
@@ -186,7 +186,7 @@ rtsp://192.168.0.1:554/livestream/12
 
 
 
-## Finding 7: Remotely Upload Malicious Files and Execute Code
+## Finding 7 - CVE-2025-6529: Remotely Upload Malicious Files and Execute Code
 
 **Description**: The 70mai Dashcam M300 has port 23 open with weak authentication such that an attacker connecting to the dashcam's network via default credentials, without needing device-pairing, can upload arbitrary/malicious files or even replace firmware via editing the auto-run script(s). 
 
@@ -212,7 +212,7 @@ rtsp://192.168.0.1:554/livestream/12
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
-## Finding 8: Remotely Crashing the Dashcam
+## Finding 8 - CVE-2025-6530: Remotely Crashing the Dashcam
 
 **Description**: If telnet is accessed on the 70mai Dashcam M300, a default script (demo.sh) is run automatically. In order to interact with the telnet session, the user needs to break the running of the script:
 
