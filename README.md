@@ -283,11 +283,11 @@ This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 **Description**: The 70mai Dashcam Omni X200 has port 80 open without authentication such that an attacker connecting to the dashcam's network via default credentials can access all files on it. 
 
 <img width="265" height="85" alt="image" src="https://github.com/user-attachments/assets/3abf5897-2b58-41ef-8b17-3232e67a1e4f" />
-
+<br/>
 <img width="265" height="47" alt="image" src="https://github.com/user-attachments/assets/9ed75584-d843-4020-90cc-c82e1b279d66" />
-
+<br/>
 <img width="265" height="214" alt="image" src="https://github.com/user-attachments/assets/4e202783-427d-4f5f-ac43-f51e2ddf1e34" />
-
+<br/>
 Even if the OS's password is changed, it would still be exposed by the http server.
 
 **Vulnerability Type**: Incorrect Access Control
