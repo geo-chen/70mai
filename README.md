@@ -243,6 +243,7 @@ This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
+# 70mai Dashcam Omni X200
 
 **Product**: Dashcam
 
