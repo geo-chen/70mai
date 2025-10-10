@@ -244,6 +244,73 @@ This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 
 
 
+**Product**: Dashcam
+
+**Version**: Omni X200
+
+**Product URL**: https://www.70mai.com/global/omni/
+
+
+## Finding 9: Bypass Device Pairing of 70mai Dashcam Omni X200
+
+**Description**: From the official 70mai mobile app, a user needs to perform authorization by clicking on the physical power button in order to connect to the dashcam’s network. However, by connecting to the dashcam’s network and directly accessing the API on port 80 and RTSP on port 554, an attacker can bypass the device authorization mechanism that requires a user to physically press on the power button during connection. Moreover, the http and rtsp services are not protected by any form of authentication.
+
+<img width="700" height="443" alt="image" src="https://github.com/user-attachments/assets/31c422e7-c273-4f33-8c68-988e9daf6dbd" />
+
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam Omni X200
+
+**Affected Component**: Authentication mechanism
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby can connect to the dashcam's services without needing to physically pair the device.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+## Finding 10: Exposed Root Password via Unauthenticated HTTP Server
+
+**Description**: The 70mai Dashcam Omni X200 has port 80 open without authentication such that an attacker connecting to the dashcam's network via default credentials can access all files on it. 
+
+<img width="265" height="85" alt="image" src="https://github.com/user-attachments/assets/3abf5897-2b58-41ef-8b17-3232e67a1e4f" />
+
+<img width="265" height="47" alt="image" src="https://github.com/user-attachments/assets/9ed75584-d843-4020-90cc-c82e1b279d66" />
+
+<img width="265" height="214" alt="image" src="https://github.com/user-attachments/assets/4e202783-427d-4f5f-ac43-f51e2ddf1e34" />
+
+Even if the OS's password is changed, it would still be exposed by the http server.
+
+**Vulnerability Type**: Incorrect Access Control
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam Omni X200
+
+**Affected Component**: Unauthenticated Web Server
+
+**Attack Type**: Remote
+
+**Impact Code execution**: False
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: A remote attacker nearby connected to the dashcam's network can access all files on the web server without going through authentication or device pairing and can obtain the root password.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
+
+
+
+
 ## Disclosure timeline
 
 31 Jan 2025 - Responsible disclosure to manufacturer
