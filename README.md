@@ -252,7 +252,7 @@ This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 **Product URL**: https://www.70mai.com/global/omni/
 
 
-## Finding 9: Bypass Device Pairing of 70mai Dashcam Omni X200
+## Finding 9 - CVE-2025-11942: Bypass Device Pairing of 70mai Dashcam Omni X200
 
 **Description**: From the official 70mai mobile app, a user needs to perform authorization by clicking on the physical power button in order to connect to the dashcam’s network. However, by connecting to the dashcam’s network and directly accessing the API on port 80 and RTSP on port 554, an attacker can bypass the device authorization mechanism that requires a user to physically press on the power button during connection. Moreover, the http and rtsp services are not protected by any form of authentication.
 
@@ -278,7 +278,7 @@ This creates a DoS on the dashcam. Yes, this dashcam has a weak network stack.
 **Has vendor confirmed or acknowledged the vulnerability?**: No
 
 
-## Finding 10: Exposed Root Password via Unauthenticated HTTP Server
+## Finding 10 - CVE-2025-11943: Exposed Root Password via Unauthenticated HTTP Server
 
 **Description**: The 70mai Dashcam Omni X200 has port 80 open without authentication such that an attacker connecting to the dashcam's network via default credentials can access all files on it. 
 
