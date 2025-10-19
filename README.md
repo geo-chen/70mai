@@ -310,6 +310,32 @@ Even if the OS's password is changed, it would still be exposed by the http serv
 
 
 
+## Finding 11: Init Script Binary Hijack Persistence Vulnerability in 70mai X200 Omni Dashcam
+
+**Description**: The 70mai X200 Omni dashcam is vulnerable to a persistence attack where an init script calls a missing binary, allowing an attacker to place a malicious binary at that path. This binary executes automatically at boot, enabling persistent code execution. This aligns with MITRE ATT&CK techniques T1037.004 (RC Scripts persistence) and T1554 (Hijack Execution Flow via binary replacement). The flaw allows stealthy, persistent control over the device, compromising its integrity and security. Proper binary validation and script hardening are essential to mitigate this risk.
+
+<img width="1168" height="444" alt="image" src="https://github.com/user-attachments/assets/2f0fd559-765a-4b44-8ed7-af780eb3711d" />
+
+**Credits**: Tan Chee Peng
+
+**Vulnerability Type**: Incorrect Access Control / Persistence via Binary Hijacking
+
+**Vendor of Product**: 70mai
+
+**Affected Product Code Base**: Dash Cam Omni X200
+
+**Affected Component**: Initialization Script
+
+**Attack Type**: Local 
+
+**Impact Code execution**: True
+
+**Impact Information Disclosure**: True
+
+**Attack Vectors**: An attacker with access to the device’s network or filesystem can place a malicious binary at a path referenced by the boot initialization script (which normally points to a missing binary). This causes the malicious binary to run automatically on device boot, achieving persistent code execution and potentially exposing sensitive information or system control.
+
+**Has vendor confirmed or acknowledged the vulnerability?**: No
+
 
 
 ## Disclosure timeline
